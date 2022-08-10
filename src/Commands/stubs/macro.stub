@@ -1,0 +1,15 @@
+<?php
+
+namespace {{ namespace }};
+
+use Closure;
+{{ mixin }}
+class {{ class }}
+{
+    public function __invoke(): Closure
+    {
+        return function () {
+            //
+        };
+    }
+}
