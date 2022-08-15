@@ -69,5 +69,7 @@ class MacroCacheCommand extends Command
         }
 
         $this->info('Macros cached successfully!');
+
+        return Command::SUCCESS;
     }
 }

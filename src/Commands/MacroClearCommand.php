@@ -54,5 +54,7 @@ class MacroClearCommand extends Command
         $this->files->deleteDirectory(Macronite::getCacheFolderPath());
 
         $this->info('Cached macros cleared!');
+
+        return Command::SUCCESS;
     }
 }

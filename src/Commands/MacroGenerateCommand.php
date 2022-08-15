@@ -41,6 +41,8 @@ class MacroGenerateCommand extends Command
         }
 
         $this->info('Macros generated successfully!');
+
+        return Command::SUCCESS;
     }
 
     /**
