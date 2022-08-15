@@ -7,9 +7,9 @@ namespace Lyhty\Macronite;
  *
  * @param  object|string  $object_or_class
  * @param  string  $method
- * @return void
+ * @return bool
  */
-function static_method_exists($object_or_class, string $method)
+function static_method_exists($object_or_class, string $method): bool
 {
     if (! method_exists($object_or_class, $method)) {
         return false;

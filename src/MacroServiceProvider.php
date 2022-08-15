@@ -74,6 +74,6 @@ abstract class MacroServiceProvider extends ServiceProvider
                 ->each(fn ($class, $macro) => $macroable::macro($macro, app($class)()));
         }
 
-        static::bootMacros();
+        $this->bootMacros();
     }
 }

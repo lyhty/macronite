@@ -3,6 +3,7 @@
 namespace Lyhty\Macronite;
 
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 
 class MacroniteService
@@ -29,7 +30,7 @@ class MacroniteService
      */
     public function getCacheFolderPath(): string
     {
-        return app()->bootstrapPath($this->config['cache_folder']);
+        return App::bootstrapPath($this->config['cache_folder']);
     }
 
     /**
