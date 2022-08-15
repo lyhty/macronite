@@ -5,6 +5,7 @@ namespace Lyhty\Macronite\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 use Lyhty\Macronite\MacroServiceProvider;
+use ReflectionClass;
 
 class MacroGenerateCommand extends Command
 {
@@ -13,7 +14,7 @@ class MacroGenerateCommand extends Command
      *
      * @var string
      */
-    protected $name = 'macro:generate';
+    protected $signature = 'macro:generate {--N|namespace= : Discover macros from providers in given namespace}';
 
     /**
      * The console command description.
@@ -29,20 +30,35 @@ class MacroGenerateCommand extends Command
      */
     public function handle()
     {
-        $providers = array_filter(
-            $this->laravel->getProviders(MacroServiceProvider::class),
-            fn ($provider) => Str::startsWith(get_class($provider), $this->laravel->getNamespace())
-        );
-
-        foreach ($providers as $provider) {
-            foreach ($provider->getMacros() as $class => $macros) {
-                $this->makeMacros($class, $macros);
+        foreach ($this->getProvidersInNamespace() as $provider) {
+            foreach ($provider->getMacros() as $macroable => $macros) {
+                $this->makeMacros($macroable, $macros);
             }
         }
 
         $this->info('Macros generated successfully!');
 
         return Command::SUCCESS;
+    }
+
+    /**
+     * Return the provider instances that match the namespace.
+     *
+     * @return \Lyhty\Macronite\MacroServiceProvider[]
+     */
+    protected function getProvidersInNamespace()
+    {
+        $namespace = Str::of($this->option('namespace') ?: $this->laravel->getNamespace())
+            ->replace('/', '\\')
+            ->finish('\\');
+
+        return array_filter(
+            $this->laravel->getProviders(MacroServiceProvider::class),
+            fn ($provider) => Str::startsWith(
+                Str::finish((new ReflectionClass($provider))->getNamespaceName(), '\\'),
+                $namespace
+            )
+        );
     }
 
     /**

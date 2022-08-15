@@ -11,6 +11,6 @@ class NonExistentMacroServiceProvider extends MacroServiceProvider
             \App\Macros\Arr\NonExistentMacro::class,
             'example' => \App\Macros\Arr\AnotherNonExistentMacro::class,
             'anotherExample' => \App\Macros\Arr\YetAnotherNonExistentMacro::class,
-        ]
+        ],
     ];
 }
