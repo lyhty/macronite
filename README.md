@@ -8,6 +8,8 @@
 [![StyleCI](https://github.styleci.io/repos/523255216/shield)](https://github.styleci.io/repos/523255216)
 [![License](https://img.shields.io/packagist/l/lyhty/macronite.svg?style=flat-square)](https://packagist.org/packages/lyhty/macronite)
 
+<!-- CUTOFF -->
+
 This package provides a very convenient macro maker to your Laravel project.
 
 ## Installation
