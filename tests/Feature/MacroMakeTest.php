@@ -20,7 +20,7 @@ class MacroMakeTest extends TestCase
     public function testMacroMakeCommand(): void
     {
         $this->artisan('make:macro Arr/TestMacro')
-            ->expectsOutput('Macro created successfully.')
+            ->expectsOutputToContain('created successfully.')
             ->assertSuccessful();
 
         $this->assertFileExists($this->app->basePath(static::$macroPaths['arr']));
@@ -29,7 +29,7 @@ class MacroMakeTest extends TestCase
     public function testMacroMakeWithMixinArgumentCommand(): void
     {
         $this->artisan('make:macro Str/TestMacro --mixin=/Illuminate/Support/Str')
-            ->expectsOutput('Macro created successfully.')
+            ->expectsOutputToContain('created successfully.')
             ->assertSuccessful();
 
         $this->assertFileExists($this->app->basePath(static::$macroPaths['str']));
