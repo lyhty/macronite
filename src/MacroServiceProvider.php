@@ -68,7 +68,7 @@ abstract class MacroServiceProvider extends ServiceProvider
             collect($values)
                 ->when(
                     method_exists($this, $method = 'filterMacros'),
-                    fn (Collection $collection): Collection => $this->{$method}($collection)
+                    fn (Collection $collection): Collection => $this->{$method}($collection, $macroable)
                 )
                 ->reject(fn ($class, $macro) => Macronite::alreadyMacroed($macroable, $macro))
                 ->each(fn ($class, $macro) => $macroable::macro($macro, app($class)()));
