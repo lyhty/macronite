@@ -14,8 +14,6 @@ class MacroniteService
 
     /**
      * The macronite-service constructor.
-     *
-     * @param  array  $config
      */
     public function __construct(array $config, Filesystem $files)
     {
@@ -25,8 +23,6 @@ class MacroniteService
 
     /**
      * Get the full path of the cache folder.
-     *
-     * @return string
      */
     public function getCacheFolderPath(): string
     {
@@ -35,9 +31,6 @@ class MacroniteService
 
     /**
      * Get the filename for the given provider's macro cache.
-     *
-     * @param  MacroServiceProvider  $provider
-     * @return string
      */
     public function getProviderCacheFilename(MacroServiceProvider $provider): string
     {
@@ -46,9 +39,6 @@ class MacroniteService
 
     /**
      * Get the full path for the given provider's macro cache.
-     *
-     * @param  MacroServiceProvider  $provider
-     * @return string
      */
     public function getProviderCachePath(MacroServiceProvider $provider): string
     {
@@ -57,9 +47,6 @@ class MacroniteService
 
     /**
      * Return boolean value whether the given provider is cached.
-     *
-     * @param  MacroServiceProvider  $provider
-     * @return bool
      */
     public function cacheExists(MacroServiceProvider $provider): bool
     {
@@ -68,9 +55,6 @@ class MacroniteService
 
     /**
      * Get the cached macros of the given provider.
-     *
-     * @param  MacroServiceProvider  $provider
-     * @return array|null
      */
     public function getCachedProviderMacros(MacroServiceProvider $provider): ?array
     {
@@ -84,7 +68,6 @@ class MacroniteService
      *
      * @param  string|int|null  $key
      * @param  string  $class
-     * @return string
      */
     public function resolveMacroName($key, $class): string
     {
@@ -101,8 +84,6 @@ class MacroniteService
      * Return boolean value whether given macro is already macroed for given Macroable.
      *
      * @param  object|string  $macroable
-     * @param  string  $macro
-     * @return bool
      */
     public static function alreadyMacroed($macroable, string $macro): bool
     {

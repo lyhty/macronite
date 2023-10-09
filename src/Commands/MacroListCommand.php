@@ -8,7 +8,8 @@ use Lyhty\Macronite\MacroServiceProvider as Provider;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Terminal;
 
-use function Laravel\Prompts\{select, alert};
+use function Laravel\Prompts\alert;
+use function Laravel\Prompts\select;
 
 class MacroListCommand extends Command
 {
@@ -27,7 +28,7 @@ class MacroListCommand extends Command
      *
      * @var string
      */
-    protected $description = "List all defined application macros";
+    protected $description = 'List all defined application macros';
 
     /**
      * The filesystem instance.
@@ -60,10 +61,10 @@ class MacroListCommand extends Command
 
         if ($this->option('all') || $providers->containsOneItem()) {
             $select = 'all';
-        } else if ($this->option('provider')) {
+        } elseif ($this->option('provider')) {
             $select = str_replace('/', '\\', $this->option('provider'));
 
-            if (!isset($providers[$select])) {
+            if (! isset($providers[$select])) {
                 alert("Provider [{$select}] not found");
 
                 return Command::FAILURE;
@@ -97,7 +98,7 @@ class MacroListCommand extends Command
 
         foreach ($mappedMacros as $macroable => $macros) {
             if (mb_strlen($macroable) >= $terminalWidth) {
-                $macroable = '…' . strrev(substr(strrev($macroable), 0, $terminalWidth - 5));
+                $macroable = '…'.strrev(substr(strrev($macroable), 0, $terminalWidth - 5));
             }
 
             $this->line("  <fg=yellow>{$macroable}</>");
@@ -110,7 +111,7 @@ class MacroListCommand extends Command
                 ));
 
                 if (mb_strlen($name.$macro.$dots) + $spaces > $terminalWidth) {
-                    $macro = '…' . strrev(substr(strrev($macro), 0, $terminalWidth - 1 - mb_strlen($name.$dots) - $spaces));
+                    $macro = '…'.strrev(substr(strrev($macro), 0, $terminalWidth - 1 - mb_strlen($name.$dots) - $spaces));
                 }
 
                 $this->line("  <fg=#6C7280>⇂</> {$name} <fg=#6C7280>{$dots} {$macro}</>");
@@ -165,7 +166,7 @@ class MacroListCommand extends Command
 
         $spaces = str_repeat(' ', $offset);
 
-        return $spaces . "<fg=blue;options=bold>$macroCountText</>";
+        return $spaces."<fg=blue;options=bold>$macroCountText</>";
     }
 
     /**

@@ -9,15 +9,11 @@ abstract class MacroServiceProvider extends ServiceProvider
 {
     /**
      * The macro mappings for the application.
-     *
-     * @var array
      */
     protected static array $macros = [];
 
     /**
      * Bootstrap closure based application macros.
-     *
-     * @return void
      */
     public function bootMacros(): void
     {
@@ -26,8 +22,6 @@ abstract class MacroServiceProvider extends ServiceProvider
 
     /**
      * Return the macros mappings array.
-     *
-     * @return array
      */
     public function getMacros(): array
     {
@@ -36,8 +30,6 @@ abstract class MacroServiceProvider extends ServiceProvider
 
     /**
      * Map the macros to the final format.
-     *
-     * @return array
      */
     public function mapMacros(): array
     {
