@@ -31,6 +31,7 @@ class MacroniteServiceProvider extends ServiceProvider
                 Commands\MacroCacheCommand::class,
                 Commands\MacroClearCommand::class,
                 Commands\MacroGenerateCommand::class,
+                Commands\MacroListCommand::class,
                 Commands\MacroMakeCommand::class,
             ]);
         }
