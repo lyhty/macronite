@@ -4,7 +4,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/lyhty/macronite.svg?label=&logo=packagist&logoColor=white&style=flat-square)](https://packagist.org/packages/lyhty/macronite)
 [![PHP](https://img.shields.io/packagist/php-v/lyhty/macronite?style=flat-square&label=&logo=php&logoColor=white)](https://packagist.org/packages/lyhty/macronite)
-[![Laravel](https://img.shields.io/static/v1?label=&message=^9.0%20|%20^10.0&color=red&style=flat-square&logo=laravel&logoColor=white)](https://packagist.org/packages/lyhty/macronite)
+[![Laravel](https://img.shields.io/static/v1?label=&message=^10.0&color=red&style=flat-square&logo=laravel&logoColor=white)](https://packagist.org/packages/lyhty/macronite)
 [![Total Downloads](https://img.shields.io/packagist/dt/lyhty/macronite.svg?style=flat-square)](https://packagist.org/packages/lyhty/macronite)
 [![StyleCI](https://github.styleci.io/repos/523255216/shield)](https://github.styleci.io/repos/523255216)
 [![License](https://img.shields.io/packagist/l/lyhty/macronite.svg?style=flat-square)](https://packagist.org/packages/lyhty/macronite)
