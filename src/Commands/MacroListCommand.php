@@ -20,8 +20,8 @@ class MacroListCommand extends Command
      */
     protected $signature = 'macro:list
         {--a|all : List all macros from all providers}
-        {--M|macroable= : Filter the macros by macroable}
-        {--P|provider= : Filter the macros by provider}';
+        {--M|macroable= : Filter macros by the macroable class}
+        {--P|provider= : Filter macros by the provider}';
 
     /**
      * The console command description.
@@ -86,9 +86,11 @@ class MacroListCommand extends Command
 
         if ($this->option('macroable')) {
             $macroableOpt = str_replace('/', '\\', $this->option('macroable'));
+            $exactMatch = false;
 
             if (isset($mappedMacros[$macroableOpt])) {
                 $mappedMacros = collect([$macroableOpt => $mappedMacros[$macroableOpt]]);
+                $exactMatch = true;
             } else {
                 $mappedMacros = $mappedMacros->filter(fn ($macros, $macroable) => str_contains($macroable, $macroableOpt));
             }
@@ -99,6 +101,14 @@ class MacroListCommand extends Command
         foreach ($mappedMacros as $macroable => $macros) {
             if (mb_strlen($macroable) >= $terminalWidth) {
                 $macroable = '…'.strrev(substr(strrev($macroable), 0, $terminalWidth - 5));
+            }
+
+            if (isset($macroableOpt) && (!isset($exactMatch) || $exactMatch === false)) {
+                $macroable = str_replace('\\', '/', str_replace(
+                    $macroableOpt,
+                    "<fg=yellow;options=underscore>{$macroableOpt}</>",
+                    $macroable
+                ));
             }
 
             $this->line("  <fg=yellow>{$macroable}</>");
