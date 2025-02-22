@@ -103,7 +103,7 @@ class MacroListCommand extends Command
                 $macroable = '…'.strrev(substr(strrev($macroable), 0, $terminalWidth - 5));
             }
 
-            if (isset($macroableOpt) && (!isset($exactMatch) || $exactMatch === false)) {
+            if (isset($macroableOpt) && (! isset($exactMatch) || $exactMatch === false)) {
                 $macroable = str_replace('\\', '/', str_replace(
                     $macroableOpt,
                     "<fg=yellow;options=underscore>{$macroableOpt}</>",
