@@ -127,9 +127,9 @@ Example output:
 ```bash
 $ php artisan macro:list
   Illuminate\Database\Eloquent\Builder
-  ⇂ orWhereLike .................................................... Lyhty\Macros\Builder\WhereLikeOrMacro
-  ⇂ selectKey ........................................................ Lyhty\Macros\Builder\SelectKeyMacro
-  ⇂ whereLike ........................................................ Lyhty\Macros\Builder\WhereLikeMacro
+  ⇂ orWhereLike ...................................... Lyhty\Macros\Builder\WhereLikeOrMacro
+  ⇂ selectKey .......................................... Lyhty\Macros\Builder\SelectKeyMacro
+  ⇂ whereLike .......................................... Lyhty\Macros\Builder\WhereLikeMacro
 ```
 
 Example verbose output:
@@ -137,7 +137,7 @@ Example verbose output:
 ```bash
 $ php artisan macro:list --v
   Illuminate\Database\Eloquent\Builder
-  ⇂ orWhereLike .................................................... Lyhty\Macros\Builder\WhereLikeOrMacro
+  ⇂ orWhereLike ...................................... Lyhty\Macros\Builder\WhereLikeOrMacro
     ⇂ Parameter #0 [ <required> $attributes ]
     ⇂ Parameter #1 [ <required> string $searchTerm ]
     ⇂ Parameter #2 [ <optional> $pattern = 'both' ]
