@@ -117,6 +117,33 @@ also filling in the `@mixin` tag.
 Since the macro mapping is very dynamic, you can cache the macros to be set in stone with `macro:cache`.
 The cache can be cleared with the `macro:clear` function.
 
+### `macro:list`
+
+If you want to list all the macros that are created using the MacroServiceProvider, you can use the
+`macro:list` command.
+
+Example output:
+
+```bash
+$ php artisan macro:list
+  Illuminate\Database\Eloquent\Builder
+  ⇂ orWhereLike .................................................... Lyhty\Macros\Builder\WhereLikeOrMacro
+  ⇂ selectKey ........................................................ Lyhty\Macros\Builder\SelectKeyMacro
+  ⇂ whereLike ........................................................ Lyhty\Macros\Builder\WhereLikeMacro
+```
+
+Example verbose output:
+
+```bash
+$ php artisan macro:list --v
+  Illuminate\Database\Eloquent\Builder
+  ⇂ orWhereLike .................................................... Lyhty\Macros\Builder\WhereLikeOrMacro
+    ⇂ Parameter #0 [ <required> $attributes ]
+    ⇂ Parameter #1 [ <required> string $searchTerm ]
+    ⇂ Parameter #2 [ <optional> $pattern = 'both' ]
+    ⇂ Return [ mixed ]
+```
+
 ## License
 
 Lyhty Macros is open-sourced software licensed under the [MIT license](LICENSE.md).
