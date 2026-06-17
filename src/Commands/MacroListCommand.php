@@ -53,7 +53,7 @@ class MacroListCommand extends Command
     {
         $this->newLine();
 
-        /** @var \Illuminate\Support\Collection<Provider> $providers */
+        /** @var \Illuminate\Support\Collection<array-key,Provider> $providers */
         $providers = collect($this->laravel->getProviders(Provider::class))
             ->values()
             ->mapWithKeys(fn ($provider) => [get_class($provider) => $provider])

@@ -65,11 +65,8 @@ class MacroniteService
 
     /**
      * Resolve macro name for the given macro class.
-     *
-     * @param  string|int|null  $key
-     * @param  string  $class
      */
-    public function resolveMacroName($key, $class): string
+    public function resolveMacroName(string|int|null $key, string $class): string
     {
         if (is_string($key)) {
             return $key;
@@ -82,10 +79,8 @@ class MacroniteService
 
     /**
      * Return boolean value whether given macro is already macroed for given Macroable.
-     *
-     * @param  object|string  $macroable
      */
-    public static function alreadyMacroed($macroable, string $macro): bool
+    public static function alreadyMacroed(object|string $macroable, string $macro): bool
     {
         return static_method_exists($macroable, 'hasMacro')
             && $macroable::hasMacro($macro);
